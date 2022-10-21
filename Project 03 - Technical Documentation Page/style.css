@@ -1,0 +1,129 @@
+:root{
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+body{
+    font-family:'Varela Round', Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+    font-size: calc(1rem + 0.5vw);
+    
+}
+
+
+
+
+#navbar{
+    position: relative;
+    left: -2vw;
+    width: 104vw;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;;
+    background-color: rgb(255, 241, 236);
+    border: 2px solid black;
+    height: 35vh;
+    overflow: auto;
+    
+}
+#navbar header{
+    font-size: 1.75em;
+    font-weight: bold;
+    text-align: center;
+    padding: .5em 0;
+}
+#navbar::-webkit-scrollbar {
+    width: 2.2em;
+}
+   
+#navbar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.3);
+}
+   
+#navbar::-webkit-scrollbar-thumb {
+  background-color: rgb(126, 126, 126);
+  outline: 1px solid rgb(85, 87, 89);
+}
+
+.nav-link:link{
+    color: rgb(66, 66, 66);
+    text-decoration: none;
+    border-top: 2px solid black;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: .35em 0; 
+}
+.nav-link:visited{
+    color: rgb(66, 66, 66);
+}
+.nav-link:hover{
+    background-color: rgb(233, 221, 216);
+    color: #000000;
+}
+.nav-link:active,
+.nav-link:focus{
+    background-color: rgb(73, 68, 67);
+    color: white;
+}
+
+
+#main-doc{
+    margin: 1.5em 2.5em;
+    text-align: justify;
+}
+
+.main-section{
+    margin: 1.5em 0 ;
+}
+.main-section header{
+    font-size: 1.6em;
+}
+.main-section code{
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    padding: .5em .5em;
+    font-size: .85em;
+}
+
+@media screen and (min-width: 800px){
+
+    body{
+        display: grid;
+        font-size: calc(.85rem + 0.5vw);
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: auto;
+    }
+    
+    #navbar{
+        position: fixed;
+        left: 0;
+        margin-top: 0;
+        margin-left: -9px;
+        width: 250px;
+        height: 100%;
+        font-size: .8em;
+        grid-column: 1/2;
+    }
+    #navbar .nav-link:last-child{
+        border-bottom: 2px solid black;
+    }
+
+    .nav-link:link{
+        padding: 1.45em 0; 
+    }
+
+    #main-doc{
+        margin-top: 0;
+        grid-column: 2/3;
+    }
+    #main-doc section:first-child{
+        margin-top: .5em;
+    }
+}
