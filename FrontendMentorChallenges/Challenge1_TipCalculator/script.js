@@ -8,16 +8,22 @@ buttons.forEach((val) => {
     val.addEventListener('click', (e) => {
         tipAmount = e.target.textContent;
     })
+
+    val.addEventListener('click', calculate)
 });
 
 function calculate(){
-    let bill = getBill();
-    let tipAmount = getTip();
-    let numOfPeople = getNumOfPeople();
+    let bill = parseFloat(getBill());
+    let tipAmount = parseFloat(getTip());
+    let numOfPeople = parseFloat(getNumOfPeople());
 
-    let totalTip = bill * tipAmount;
-    let total = (bill + totalTip) / numOfPeople
-    let tip = totalTip / numOfPeople
+    console.log("Bill: " + bill);
+    console.log("tipAmıunt: " + tipAmount);
+    console.log("Num People: " + numOfPeople)
+
+    let totalTip = bill * tipAmount / 100;
+    let total = (bill + totalTip) / numOfPeople;
+    let tip = totalTip / numOfPeople;
 
     const tipArea = document.getElementById("tip");
 
@@ -33,9 +39,10 @@ function getBill(){
 }
 
 function getTip(){
-    if(tipAmount === '0%'){
-        const customTipInput = document.getElementById("custom-tip");
-        return customTipInput.value;
+    const customTipVal = parseFloat(document.getElementById("custom-tip").value);
+    
+    if(!isNaN(customTipVal)){
+        return customTipVal;
     }
     else{
         let tipSub = tipAmount.slice(0,-1);
