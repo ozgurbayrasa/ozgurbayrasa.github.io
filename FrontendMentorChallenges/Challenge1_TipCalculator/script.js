@@ -21,16 +21,18 @@ function calculate(){
     console.log("tipAmıunt: " + tipAmount);
     console.log("Num People: " + numOfPeople)
 
-    let totalTip = bill * tipAmount / 100;
-    let total = (bill + totalTip) / numOfPeople;
-    let tip = totalTip / numOfPeople;
+    if(!isNaN(bill) && !isNaN(tipAmount) && !isNaN(numOfPeople)){
+        let totalTip = bill * tipAmount / 100;
+        let total = (bill + totalTip) / numOfPeople;
+        let tip = totalTip / numOfPeople;
 
-    const tipArea = document.getElementById("tip");
+        const tipArea = document.getElementById("tip");
 
-    const totalArea = document.getElementById("total");
+        const totalArea = document.getElementById("total");
 
-    tipArea.innerHTML = "&dollar;" + tip.toFixed(2);
-    totalArea.innerHTML = "&dollar;" + total.toFixed(2);    
+        tipArea.innerHTML = "&dollar;" + tip.toFixed(2);
+        totalArea.innerHTML = "&dollar;" + total.toFixed(2);   
+    }
 }
 
 function getBill(){
